@@ -1,0 +1,17 @@
+class Solution:
+    def stringShift(self, s: str, shift: List[List[int]]) -> str:
+        for i in range(len(shift)):
+            if shift[i][0]==0:
+                x=shift[i][1]
+                L1=s[0:x]
+                L2=s[x:]
+                ans=L2+L1
+                s=ans
+            elif shift[i][0]==1:
+                x=shift[i][1]
+                R1=s[0 : len(s)-x] 
+                R2=s[len(s)-x:]
+                ans=R2+R1
+                s=ans
+        return(ans)
+                
