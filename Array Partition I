@@ -1,0 +1,14 @@
+class Solution:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        if len(nums)==2:
+            return(min(nums))
+        x=len(nums)
+        nums.sort()
+        pair=x//2
+        T=0
+        P= zip(nums[::2], nums[1::2])
+        for i in P:
+            T+= min(i)
+            
+        return(T)
+            
