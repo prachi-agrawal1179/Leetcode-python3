@@ -1,0 +1,4 @@
+class Solution:
+    def maximumProduct(self, nums: List[int]) -> int:
+        num = sorted(nums,reverse = True)
+        return 0 if len(nums) < 3 else max(num[0]*num[1]*num[2], num[0]*num[-1]*num[-2])
