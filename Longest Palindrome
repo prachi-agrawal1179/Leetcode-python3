@@ -1,0 +1,24 @@
+class Solution:
+    def longestPalindrome(self, s: str) -> int:
+        dicti = {}
+        for letter in s:
+            dicti[letter] = dicti.get(letter, 0) + 1
+        t=dicti.values()    
+        count=0 
+        if 1 in t:
+            count=1
+            for i in t:
+                count+=(i//2)*2
+        else:
+            count=0
+            x=0
+            for i in t:
+                if i%2!=0:
+                    x+=1
+                count+=(i//2)*2
+            if x >= 1:
+                count += 1
+                            
+                
+       
+        return count
