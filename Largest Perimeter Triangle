@@ -1,0 +1,13 @@
+class Solution:
+    def largestPerimeter(self, A: List[int]) -> int:
+        n=3
+        A.sort()
+        sumi=[]
+        for i in range(len(A)-2):
+            x=A[i:i+3]
+            if x[0]+x[1]> x[2]:
+                sumi.append(sum(x))
+            else:
+                sumi.append(0)
+        return max(sumi)
+                
