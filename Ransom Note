@@ -1,0 +1,24 @@
+class Solution:
+    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
+        nums1=[char for char in ransomNote]
+        nums2=[char for char in magazine]
+        nums1.sort()
+        nums2.sort()
+        
+        i, j = 0, 0
+        output = []
+        
+        while i<len(nums1) and j<len(nums2):
+            if nums1[i] == nums2[j]:
+                output.append(nums1[i])
+                i += 1
+                j += 1
+            elif nums1[i] < nums2[j]:
+                i += 1
+            else:
+                j += 1
+        if output==nums1:
+            return 1
+        else:
+            return 0
+        
