@@ -1,0 +1,14 @@
+class Solution:
+    def longestPalindromeSubseq(self, s: str) -> int:
+        t=s[::-1]
+        mat=[[0 for x in range(len(t)+1)] for y in range(len(s)+1)]
+        s = " " + s
+        t = " " + t
+                  
+        for i in range(1,len(s)):
+            for j in range(1,len(t)):
+                if s[i]==t[j]:
+                    mat[i][j]= 1+ mat[i-1][j-1]
+                else:
+                    mat[i][j]=max(mat[i-1][j],mat[i][j-1])
+        return mat[-1][-1]
