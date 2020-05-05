@@ -1,0 +1,17 @@
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        dicti = {}
+        for letter in s:
+            dicti[letter] = dicti.get(letter, 0) + 1
+
+        ans=[]
+        for i in s:
+            for k, v in dicti.items():
+                if i ==k and v==1:
+                    ans.append(s.index(i))
+        if len(ans)>0:
+            
+            return(ans[0])
+        else:
+            return -1
+        
