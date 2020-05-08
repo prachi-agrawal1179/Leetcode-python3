@@ -1,0 +1,37 @@
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        left=0
+        right=len(nums)
+        def msort(nums,left,right):
+            if right-left>1:
+                middle=(left+right)//2
+                msort(nums,left,middle)
+                msort(nums,middle,right)
+                mlist(nums,left,right,middle)
+        def mlist(nums,left,right,middle):
+            
+            leftlist=nums[left:middle]
+            rightlist=nums[middle:right]
+            i=0
+            j=0
+            k=left
+            while(left+i<middle and middle+j<right):
+                if (leftlist[i]<=rightlist[j]):
+                    nums[k]=leftlist[i]
+                    i=i+1
+                else:
+                    nums[k]=rightlist[j]
+                    j=j+1
+                k+=1
+            if left+i<middle:
+                while k<right:
+                    nums[k]=leftlist[i]
+                    i+=1
+                    k+=1
+            else:
+                while k<right:
+                    nums[k]=rightlist[j]
+                    j+=1
+                    k+=1
+        msort(nums,0,len(nums))
+        return nums
