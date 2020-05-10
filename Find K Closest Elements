@@ -1,0 +1,13 @@
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        if k == 0:
+            return [-1]
+        result = []
+        res = []
+        for i in arr:
+            diff = abs(x - i)
+            res.append((diff, i))
+        ans=heapq.nsmallest(k,res)
+        final=[b for a,b in ans]
+        final.sort()
+        return final
