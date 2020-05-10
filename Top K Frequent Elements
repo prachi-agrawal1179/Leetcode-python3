@@ -1,0 +1,21 @@
+from collections import Counter
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+    ''' solution 1
+    '''
+        mem = {}
+        for i in nums:
+            if i in mem: mem[i] += 1
+            else: mem[i] = 1
+        return heapq.nlargest(k, mem.keys(), key=lambda x: mem[x])
+        
+        
+    ''' solution 2
+    '''
+ from collections import Counter
+ class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        ans=[i for i, t in Counter(nums).most_common(k)]
+
+        ans.sort()
+        return ans
