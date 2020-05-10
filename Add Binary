@@ -1,0 +1,12 @@
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        def decimaln(num):
+            decimal=0
+            for digit in num:
+                decimal = decimal*2 + int(digit)
+            return(decimal)
+        x=decimaln(a)
+        y=decimaln(b)
+        return(format(x+y ,"b"))
+        
+        
