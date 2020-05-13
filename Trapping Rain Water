@@ -1,0 +1,21 @@
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        if len(height)==0:
+            return 0
+        mxl=[None] * len(height)
+        mxn=[None] * len(height)
+        mxl[0]=height[0]
+        mxn[-1]=height[len(height)-1]
+        water=[None] * len(height)
+        for i in range(1,len(height)):
+            mxl[i]=max(mxl[i-1],height[i])
+        for j in range(len(height)-2,-1,-1):
+            mxn[j]=max(mxn[j+1],height[j])
+        for k in range(len(height)):
+            water[k]=min(mxl[k],mxn[k])-height[k]
+        sumi=0
+        for t in range(len(height)):
+            sumi+=water[t]
+        return sumi
+
+            
