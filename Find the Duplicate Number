@@ -1,0 +1,10 @@
+from collections import defaultdict
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        if len(nums) <= 1: return -1
+        output = defaultdict(int)
+        for i in nums:
+            output[i] += 1
+            if output[i] > 1: return i
+        return -1
+        
