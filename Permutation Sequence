@@ -1,0 +1,14 @@
+from itertools import permutations
+class Solution:
+    def getPermutation(self, n: int, k: int) -> str:
+        ans=""
+        for i in range(1,n+1):
+            ans+=str(i)
+            
+        permit=[]
+        perm =permutations(str(ans))
+        for j in list(perm):
+            permit.append(''.join(j))
+        permit.sort()
+        return permit[k-1]
+        
