@@ -1,0 +1,17 @@
+class Solution:
+    def reorderLogFiles(self, logs: List[str]) -> List[str]:
+        a=[]
+        b=[]
+        c=[]
+        for i in logs:
+            if i[-1].isalpha():
+                a.append([i,' '.join(i.split(' ')[1:])+' '+i.split(' ')[0]])
+            else:
+                b.append(i)
+        a=sorted(a,key=lambda x:x[1])
+        for x in a:
+            c.append(x[0])
+        return c+b
+                
+            
+            
