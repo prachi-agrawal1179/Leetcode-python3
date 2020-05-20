@@ -1,0 +1,14 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        dicti={}
+        l=0
+        r=0
+        for i in range(len(s)):
+            if s[i] in dicti and r<=dicti[s[i]]:
+                r=dicti[s[i]]+1
+            else:
+                l=max(l,i-r+1)
+            dicti[s[i]]=i
+        return l
+        
+        
