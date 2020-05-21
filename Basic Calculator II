@@ -1,0 +1,29 @@
+class Solution:
+    def calculate(self, s: str) -> int:
+
+        if not s or len(s) == 0:
+            return 0
+        ans=0
+        x=0
+        sign='+'
+        stack=[]
+        for i in range(len(s)):
+            if s[i].isdigit():
+                x= x*10 + int(s[i])
+            if (not s[i].isdigit() and s[i]!=" ") or i ==len(s)-1:
+                if sign=='+':
+                    stack.append(x)
+                if sign=='-':
+                    stack.append(-x)
+                if sign=='*':
+                    p=stack.pop()*x
+                    stack.append(p)
+                if sign=='/':
+                    q=stack.pop()/x
+                    stack.append(int(q))
+                sign=s[i]
+                x=0
+        while stack:
+            ans+=stack.pop()
+        return ans
+        
