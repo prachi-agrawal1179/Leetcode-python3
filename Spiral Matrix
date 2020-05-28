@@ -1,0 +1,28 @@
+class Solution:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        if not matrix or len(matrix)==None:
+            return []
+        up,down=0,len(matrix)-1
+        left,right=0,len(matrix[0])-1
+        ans=[]
+        size=len(matrix)*len(matrix[0])
+        while len(ans)<size:
+            for i in range(left,right+1):
+                if len(ans)<size:
+                    ans.append(matrix[up][i])
+            up+=1
+            for j in range(up,down+1):
+                if len(ans)<size:
+                    ans.append(matrix[j][right])
+            right-=1
+            for k in range(right,left-1,-1):
+                if len(ans)<size:
+                    ans.append(matrix[down][k])
+            down-=1
+            for l in range(down,up-1,-1):
+                if len(ans)<size:
+                    ans.append(matrix[l][left])
+            left+=1
+        return ans
+            
+            
