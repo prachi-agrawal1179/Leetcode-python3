@@ -1,0 +1,17 @@
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        if len(nums)<2:
+            return 0
+        curr=new=0
+        step=0
+        for i in range(len(nums)):
+            if i+nums[i]>=(len(nums)-1):
+                step+=1
+                break
+            if i+nums[i]>new:
+                new=i+nums[i]
+            if i>=curr:
+                step+=1
+                curr=new
+        return step
+        
