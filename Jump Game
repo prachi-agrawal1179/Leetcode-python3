@@ -1,0 +1,7 @@
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        maxStep = 0
+        for i in range(len(nums)-1):
+            if i <= maxStep:
+                maxStep = max(maxStep, i+nums[i])
+        return maxStep >= (len(nums)-1)
