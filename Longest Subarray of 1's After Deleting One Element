@@ -1,0 +1,13 @@
+nums=[1,1,0,0,1,1,1,0,1]
+cnt1, cnt2, ans = 0, 0, 0
+for num in nums:
+    if num == 1:
+        cnt1 += 1
+        cnt2 += 1
+        ans = max(ans, cnt1, cnt2)
+
+
+        continue
+    cnt2 = cnt1
+    cnt1 = 0
+print(min(ans, len(nums) - 1))
