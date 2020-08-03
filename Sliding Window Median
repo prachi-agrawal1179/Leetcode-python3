@@ -1,0 +1,15 @@
+class Solution:
+    def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
+        x=[]
+        ans=[]
+        for i in range(len(nums)-k+1):
+            x=nums[i:i+k]
+            if len(x)==k:
+                x=sorted(x)
+                if k%2!=0:
+                    ans.append(x[len(x)//2])
+                    
+                else:
+                    ans.append((x[len(x)//2]+x[len(x)//2-1])/2)
+                    
+        return ans
